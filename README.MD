@@ -1,4 +1,4 @@
-changes Terraform command to start Devlopment Environment :-
+Terraform command to start Devlopment Environment :-
 
         terraform apply -var-file="dev.tfvars"
 
