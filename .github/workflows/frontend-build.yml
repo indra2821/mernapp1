@@ -9,7 +9,7 @@ on:
 jobs:
   build-and-scan:
     name: Build Frontend 
-    runs-on: [self-hosted, frontend]
+    runs-on: self-hosted
 
     steps:
       - name: Checkout Code
