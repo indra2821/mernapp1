@@ -1,12 +1,11 @@
 name: Frontend Build
 
 on:
-  # Automatic CI for main branch
   push:
     branches:
       - main
 
-  # Manual workflow for any branch
+  
   workflow_dispatch:
     inputs:
       branch:
@@ -19,25 +18,25 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      # Checkout code
+      
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
-          # Use the branch from workflow_dispatch if manual, otherwise current branch
+          
           ref: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.branch || github.ref }}
 
-      # Setup Node.js
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '23'
 
-      # Install dependencies
+      
       - name: Install Dependencies
         working-directory: frontend
         run: npm install
 
-      # Build frontend
+  
       - name: Build Frontend
         working-directory: frontend
         run: npm run build
